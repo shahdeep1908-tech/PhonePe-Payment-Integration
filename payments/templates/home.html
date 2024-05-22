@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pay using PhonePe</title>
+    <style>
+
+        * {
+            box-sizing: border-box;
+            padding: 0px;
+            margin: 0px;
+            font-family: cursive;
+        }
+        html,
+        body {
+            height: 100%;
+        }
+        body {
+            background-color: #f1f5f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            background-color: white;
+            padding: 25px;
+            border: 1px solid #bbbbbb;
+            border-radius: 5px;
+            box-shadow: 1px 1px 10px 0px rgb(0 0 0 / 25%);
+        }
+        .title {
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        .muted {
+            color: #8e7f7f;
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .btn_container {
+            padding: 20px;
+            text-align: center;
+        }
+        .btn {
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 4px 8px;
+            background-color: #ffaaa7;
+            color: white;
+            font-size: 1.2em;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        input[type=number] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 3px solid #ccc;
+          - webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
+        }
+        input[type=number]:focus {
+            border: 3px solid #555;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1 class="title">Pay using PhonePe</h1>
+    <br>
+    <form id="paymentForm" method="post" action="{% url 'pay' %}">
+        {% csrf_token %}
+        <div class="amount-input">
+            <input type="number" name="amount" id="donation-amount" placeholder="Enter Amount" required>
+        </div>
+        <div class="btn_container">
+            <button type="submit" class="btn" id="pay-btn">Continue</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
